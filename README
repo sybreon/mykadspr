@@ -1,0 +1,8 @@
+SPR MyKAD Checker
+=================
+
+This script helps to automate checking of MyKAD numbers against the
+SPR voter database. It takes a "mykad.csv" input file of MyKAD numbers
+and outputs a "result.csv" file of responses.
+
+This script is released under GPLv3.
