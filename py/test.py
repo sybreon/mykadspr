@@ -27,7 +27,7 @@ def checkMyKAD(mykad):
 
    # Establish first HTTP connection.
    http = httplib.HTTPConnection("daftarj.spr.gov.my")
-   http.request("GET", "/daftarj/")
+   http.request("GET", "/NEWDAFTARJ/daftarjbi.aspx")
    
    conn = http.getresponse()
    
@@ -56,7 +56,7 @@ def checkMyKAD(mykad):
                                "__EVENTVALIDATION":ekey,
                                "__EVENTTARGET":"",
                                "__EVENTARGUMENT":"",
-                               "Semak":"SEMAK",
+                               "Semak":"CHECK",
                                "txtIC": mykad})
    
    # Example POST request: __EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE=%2FwEPDwULLTE1ODMwMDk4MDUPZBYCAgEPZBYGAhMPDxYCHgRUZXh0BQgyNzUzMjk2MGRkAhcPZBYCAgMPDxYCHgdWaXNpYmxlaGRkAiEPDxYCHwAFBzIxMzc0NTRkZGQ3ZABOk0gdkLKGDM8EsbMDhqcCmA%3D%3D&txtIC=800312145029&Semak=SEMAK&__EVENTVALIDATION=%2FwEWAwLv186jCgKp%2B5bqDwKztY%2FNDi%2BNpOZAXdjQF%2FCAwA1SgP2JaZP3
@@ -65,7 +65,7 @@ def checkMyKAD(mykad):
               "Accept": "text/plain"}
    
    # reuse previous HTTP request
-   http.request("POST", "/daftarj/daftar.aspx", params, headers)
+   http.request("POST", "/NEWDAFTARJ/daftarjbi.aspx", params, headers)
    conn = http.getresponse()
    
    if conn.status != 200:
@@ -74,7 +74,7 @@ def checkMyKAD(mykad):
    # Parse results - look for "KETERANGAN"
       
    data = conn.read()
-   res = data.find("KETERANGAN")
+   res = data.find(mykad)
 
    return res != -1
 
