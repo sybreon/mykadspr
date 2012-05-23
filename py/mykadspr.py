@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 # SPR MyKAD Checker - Checks MyKAD against SPR database for registration purpose.
-# Copyright (C) 2010 Shawn Tan <shawn.tan@sybreon.com>
+# Copyright (C) 2010-2012 Shawn Tan <shawn.tan@sybreon.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
