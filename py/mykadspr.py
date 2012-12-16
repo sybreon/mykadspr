@@ -27,7 +27,7 @@ def checkMyKAD(mykad):
 
    # Establish first HTTP connection.
    http = httplib.HTTPConnection("daftarj.spr.gov.my")
-   http.request("GET", "/NEWDAFTARJ/daftarjbi.aspx")
+   http.request("GET", "/NEWDAFTARJ/DaftarjBM.aspx")
    
    conn = http.getresponse()
    
@@ -65,7 +65,7 @@ def checkMyKAD(mykad):
               "Accept": "text/plain"}
    
    # reuse previous HTTP request
-   http.request("POST", "/NEWDAFTARJ/daftarjbi.aspx", params, headers)
+   http.request("POST", "/NEWDAFTARJ/DaftarjBM.aspx", params, headers)
    conn = http.getresponse()
    
    if conn.status != 200:
@@ -74,7 +74,7 @@ def checkMyKAD(mykad):
    # Parse results - look for "KETERANGAN"
       
    data = conn.read()
-   res = data.find(mykad)
+   res = data.find("DISAHKAN")
 
    return res != -1
 
